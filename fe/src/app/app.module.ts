@@ -1,3 +1,4 @@
+import { SlidesEffects } from './state/slides.state.effects';
 import { slidesReducer } from './state/slides.state.reducers';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,6 +8,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
+import { EffectsModule } from '@ngrx/effects';
 @NgModule({
   declarations: [
     AppComponent
@@ -15,7 +17,8 @@ import { HttpClientModule } from "@angular/common/http";
     BrowserModule,
     HttpClientModule,
     StoreModule.forRoot({slides: slidesReducer}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([SlidesEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
