@@ -1,2 +1,9 @@
 <h1>Simple NgRx Effects Example</h1>
 <hr>
+
+<h2>Slides:</h2>
+<ul>
+  <li *ngFor="let slide of slides$ | async">
+    <pre>{{ slide | json }}</pre>
+  </li>
+</ul>
