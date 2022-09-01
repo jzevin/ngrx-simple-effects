@@ -1,8 +1,8 @@
-import { ApiService } from './services/api.service';
-import { Store } from '@ngrx/store';
-import { selectSlides } from './state/slides.state.selectors';
 import { Component } from '@angular/core';
-import { first } from 'rxjs';
+import { Store } from '@ngrx/store';
+
+import * as slideActions from './state/slides.state.actions';
+import { selectSlides } from './state/slides.state.selectors';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,7 @@ import { first } from 'rxjs';
 export class AppComponent {
   slides$ = this.store.select(selectSlides);
 
-  constructor(private store: Store, private api: ApiService) {
-    // this.api.getAllSlides().pipe(first()).subscribe(console.log);
+  constructor(private store: Store) {
+    this.store.dispatch(slideActions.loadSlides());
   }
 }

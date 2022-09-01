@@ -1,5 +1,5 @@
 import { Slide } from './../models/slide';
-import { createAction } from "@ngrx/store";
+import { createAction, props } from "@ngrx/store";
 
 
 export const loadSlides = createAction(
@@ -7,9 +7,11 @@ export const loadSlides = createAction(
 );
 
 export const loadSlidesSuccess = createAction(
-  "[Slides] Load All Slides Success"
+  "[Slides] Load All Slides Success",
+  props<{ slides: ReadonlyArray<Slide> }>()
 );
 
 export const loadSlidesFailure = createAction(
-  "[Slides] Load All Slides Failure"
+  "[Slides] Load All Slides Failure",
+  props<Error>()
 );
