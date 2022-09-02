@@ -1,3 +1,4 @@
+import { uiStateReducer } from './state/ui.state.reducers';
 import { SlidesEffects } from './state/slides.state.effects';
 import { slidesReducer } from './state/slides.state.reducers';
 import { NgModule } from '@angular/core';
@@ -16,7 +17,7 @@ import { EffectsModule } from '@ngrx/effects';
   imports: [
     BrowserModule,
     HttpClientModule,
-    StoreModule.forRoot({slides: slidesReducer}),
+    StoreModule.forRoot({slides: slidesReducer, ui: uiStateReducer}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([SlidesEffects])
   ],

@@ -1,6 +1,12 @@
-<h1>Simple NgRx Effects Example</h1>
-<hr>
 
+<header>
+  <h1>Simple NgRx Effects Example</h1>
+  <div class="info">
+    <!-- loading: {{ loading$ | async }} -->
+    <img *ngIf="loading$ | async" src="../assets/loading.gif" alt="" srcset="">
+  </div>
+</header>
+<hr>
 <h2>Slides:</h2>
 <ul>
   <li *ngFor="let slide of slides$ | async">
